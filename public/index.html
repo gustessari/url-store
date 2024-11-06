@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Personal Library</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1>My Personal Library</h1>
+
+      <!-- Topic Input -->
+    <div class="topic-input">
+      <input type="text" id="new-topic-name" placeholder="Enter new topic (e.g., Study Japanese)">
+      <button id="add-topic">Add Topic</button>
+    </div>
+
+    <!-- Link Input with Topic Selection -->
+    <div class="link-input">
+      <select id="topic-select">
+        <option value="without-topic">Without Topic</option>
+      </select>
+      <input type="text" id="new-link" placeholder="Enter link URL">
+      <button id="add-link">Add Link</button>
+    </div>
+    <!-- Display Links by Topic -->
+    <div id="topics-container"></div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
