@@ -1,33 +1,94 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Personal Library</title>
-  <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Personal Library</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div class="container">
-    <h1>My Personal Library</h1>
+    <main class="container">
+        <h1>My Personal Library</h1>
 
-      <!-- Topic Input -->
-    <div class="topic-input">
-      <input type="text" id="new-topic-name" placeholder="Enter new topic (e.g., Study Japanese)">
-      <button id="add-topic">Add Topic</button>
-    </div>
+        <section class="topic-management">
+            <h2 class="visually-hidden">Topic Management</h2>
+            <div class="topic-input">
+                <input 
+                    type="text" 
+                    id="new-topic-name" 
+                    placeholder="Enter new topic name"
+                    aria-label="New topic name">
+                <button 
+                    id="add-topic" 
+                    class="button button-primary"
+                    aria-label="Add new topic">
+                    Add Topic
+                </button>
+            </div>
+        </section>
 
-    <!-- Link Input with Topic Selection -->
-    <div class="link-input">
-      <select id="topic-select">
-        <option value="without-topic">Without Topic</option>
-      </select>
-      <input type="text" id="new-link" placeholder="Enter link URL">
-      <button id="add-link">Add Link</button>
-    </div>
-    <!-- Display Links by Topic -->
-    <div id="topics-container"></div>
-  </div>
+        <section class="link-management">
+            <h2 class="visually-hidden">Link Management</h2>
+            <div class="link-input">
+                <select 
+                    id="topic-select" 
+                    aria-label="Select topic">
+                    <option value="without-topic">Without Topic</option>
+                </select>
+                <input 
+                    type="url" 
+                    id="new-link" 
+                    placeholder="Enter URL"
+                    aria-label="New link URL">
+                <input 
+                    type="text" 
+                    id="link-description" 
+                    placeholder="Description (optional)"
+                    aria-label="Link description">
+                <button 
+                    id="add-link" 
+                    class="button button-primary"
+                    aria-label="Add new link">
+                    Add Link
+                </button>
+            </div>
+        </section>
 
-  <script src="app.js"></script>
+        <section class="topics-section">
+            <h2 class="visually-hidden">Topics and Links</h2>
+            <div id="topics-container" class="topics-grid">
+                <!-- Topics will be dynamically inserted here -->
+            </div>
+        </section>
+    </main>
+
+    <template id="topic-template">
+        <article class="topic">
+            <header class="topic-header">
+                <h3 class="topic-title"></h3>
+                <button class="button button-delete delete-topic" aria-label="Delete topic">
+                    ×
+                </button>
+            </header>
+            <ul class="link-list">
+                <!-- Links will be dynamically inserted here -->
+            </ul>
+        </article>
+    </template>
+
+    <template id="link-template">
+        <li class="link-item">
+            <div class="link-content">
+                <a target="_blank" rel="noopener noreferrer"></a>
+                <p class="link-description"></p>
+                <time class="link-timestamp"></time>
+            </div>
+            <button class="button button-delete delete-link" aria-label="Delete link">
+                ×
+            </button>
+        </li>
+    </template>
+
+    <script src="app.js"></script>
 </body>
 </html>

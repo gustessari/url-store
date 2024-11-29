@@ -1,19 +1,25 @@
 {
+  "type": "module",
   "name": "url-store",
   "version": "1.0.0",
-  "main": "app.js",
+  "description": "Personal Library for organizing links",
+  "main": "dist/server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon server.js"
+    "start": "node dist/server.js",
+    "dev": "ts-node-dev src/server.ts",
+    "build": "tsc",
+    "watch": "tsc -w"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "description": "",
   "dependencies": {
-    "express": "^4.21.1"
+    "dotenv": "^16.4.5",
+    "express": "^4.17.1",
+    "mongodb": "^6.10.0",
+    "mongoose": "^8.8.1"
   },
   "devDependencies": {
-    "nodemon": "^3.1.7"
+    "@types/express": "^4.17.13",
+    "@types/node": "^16.11.7",
+    "ts-node-dev": "^1.1.8",
+    "typescript": "^5.1.6"
   }
 }
