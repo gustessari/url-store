@@ -1,8 +1,8 @@
 {
   "type": "module",
-  "name": "url-store",
+  "name": "url-store-backend",
   "version": "1.0.0",
-  "description": "Personal Library for organizing links",
+  "description": "Backend for URL Store",
   "main": "dist/server.js",
   "scripts": {
     "start": "node dist/server.js",
@@ -13,12 +13,18 @@
   "dependencies": {
     "dotenv": "^16.4.5",
     "express": "^4.17.1",
+    "glob": "^11.0.0",
+    "lru-cache": "^11.0.2",
     "mongodb": "^6.10.0",
-    "mongoose": "^8.8.1"
+    "mongoose": "^8.8.1",
+    "rimraf": "^6.0.1"
   },
   "devDependencies": {
     "@types/express": "^4.17.13",
+    "@types/jest": "^29.5.14",
     "@types/node": "^16.11.7",
+    "jest": "^29.7.0",
+    "ts-jest": "^29.2.5",
     "ts-node-dev": "^1.1.8",
     "typescript": "^5.1.6"
   }
