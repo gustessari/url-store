@@ -2,9 +2,7 @@ import { Request, Response } from 'express';
 import { Link, TopicsStore } from '../types';
 import { isValidURL } from '../utils';
 
-const topics: TopicsStore = { "without-topic": [] };
-
-export const addLink = (req: Request, res: Response) => {
+export const addLink = (topics: TopicsStore) => (req: Request, res: Response) => {
   const { topic, link, description } = req.body;
 
   if (!link || typeof link !== 'string') {
@@ -32,7 +30,7 @@ export const addLink = (req: Request, res: Response) => {
   return res.json({ message: `Link added under "${targetTopic}".` });
 };
 
-export const deleteLink = (req: Request, res: Response) => {
+export const deleteLink = (topics: TopicsStore) => (req: Request, res: Response) => {
   const { topic, linkIndex } = req.params;
   const index = parseInt(linkIndex, 10);
 

@@ -1,14 +1,11 @@
-// filepath: src/routes/topics.ts
 import express from 'express';
-import { getAllTopics, createTopic, deleteTopic } from '../controllers/topicsController';
 import { addLink, deleteLink } from '../controllers/linksController';
+import { TopicsStore } from '../types';
 
 const router = express.Router();
+const topics: TopicsStore = { "without-topic": [] };
 
-router.get('/', getAllTopics);
-router.post('/', createTopic);
-router.delete('/:topic', deleteTopic);
-router.post('/', addLink);
-router.delete('/:topic/links/:linkIndex', deleteLink);
+router.post('/', addLink(topics));
+router.delete('/:topic/links/:linkIndex', deleteLink(topics));
 
 export default router;
